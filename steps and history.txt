@@ -1,0 +1,7 @@
+npm create vite@latest client
+choose javascripr +swc with reacts
+
+
+install tailwind css with vite
+go through this site  https://tailwindcss.com/docs/guides/vite
+
