@@ -7,38 +7,4 @@ go through this site  https://tailwindcss.com/docs/guides/vite
 
 
 
-import React from 'react'
-
-import Home from './pages/Home'
-import Profile from './pages/profile'
-import Signin from './pages/Signin'
-import Signout from './pages/Signout'
-import About from './pages/About'
-
-const App = () => {
-  return (
-
-     <div>
-      <h1>jackson</h1>
-     </div>
-
-    // <Router>
-    //  <Routes>
-
-    //  <Route exact path="/" component={Home} />
-
-       
-    //    {/* <Route path='/profile' element={<Profile/>}/>
-    //    <Route path='/signin' element={<Signin/>}/>
-    //    <Route path='/signout' element={<Signout/>}/>
-    //    <Route path='/about' element={<About/>}/> */}
- 
-    //  </Routes>
-    
-    
-    // </Router>
-  )
-}
-
-export default App
-
+mongodb+srv://jackson:jacksonmon22@real-estate.auxdjie.mongodb.net/?retryWrites=true&w=majority
