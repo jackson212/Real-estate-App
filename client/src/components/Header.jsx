@@ -3,6 +3,8 @@ import {FaSearch} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
+  
+  
   return (
    
     <header  className='top-0 left-0 w-full py-3 px-0 text-left bg-blue-200 font-normal leading-6 text-neutral -800 shadow-md'>
@@ -28,8 +30,12 @@ const Header = () => {
           <Link to="/about">
            <li className='hidden sm:inline  text-slate-700 hover:underline'>About</li>
            </Link>
-           <li className='text-slate-700 hover:underline'>signin</li> //akka
-
+           <Link to="/signin">
+           <li className='text-slate-700 hover:underline'>signin</li> 
+           </Link>
+           <Link to="/signup">
+           <li className='text-slate-700 hover:underline'>signup</li> 
+           </Link>
      </ul>
 
 
