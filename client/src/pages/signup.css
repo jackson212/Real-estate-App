@@ -1,0 +1,6 @@
+.pattern {
+    background-image: url('../assets/img/img2.jpg');
+    opacity: 0.3; /* Adjust the opacity as needed */
+    z-index: -1; /* Ensure the pattern is behind other content */
+    pointer-events: none; /* Allow interaction with content behind the pattern */
+}

@@ -4,6 +4,8 @@ import { FcGoogle } from "react-icons/fc";
 import { Link,useNavigate } from 'react-router-dom'
 import { signInStart,signInFailure, signinSuccess} from "../redux/user/userSlice";
 import {  useDispatch, useSelector } from "react-redux";
+import Oath from "../components/Oath";
+
 
 const Signin = () => {
   
@@ -68,9 +70,6 @@ const Signin = () => {
     console.log(formData) 
   return (
     
-
-                
-
       <div className='relative w-full h-screen bg-zinc-900/90'>  
          
          <img  className=' absolute w-full h-full object-cover mix-blend-overlay'src ={loginimg} alt='/'/>
@@ -78,10 +77,7 @@ const Signin = () => {
          <div className='flex  justify-center items-center h-full  '>
         <form className=' max-w-[400px] w-full mx-auto bg-white p-8' onSubmit={handleSubmit}>
           <h2 className='text-4xl font-bold text-center py-6'>BRAND</h2>
-          <div className=' flex  justify-center py-8'>
-              
-              <p className=' border  shadow-lg hover:shadow-xl px-6 py-2 relative flex  items-center'><FcGoogle />Google</p>
-          </div>
+          
           <div  className='flex flex-col mb-4'>  
           <label >Username</label>
             <input className='border  relative  bg-gray-100 p-2' type='text' id="email" onChange={handleChange}/> 
@@ -92,7 +88,9 @@ const Signin = () => {
             <input className ="border  relative  bg-gray-100  p-2"type='text' id="password" onChange={handleChange}/>
           </div>
           <button className='border w-full my-5 py-2 bg-indigo-600 hover:bg-indigo-500 relative text-white' >Sign in</button>
+          <Oath/>
           
+
           <div>
            
           <p className='flex items-center'> <input className='mr-2' type='checkbox' /> remember me</p>
