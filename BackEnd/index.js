@@ -6,7 +6,7 @@ import AuthRoute from './router/authRouter.js'
 
 dotenv.config()
 
-mongoose.connect(process.env.MONGO_URL).then(()=>{
+mongoose.connect("mongodb+srv://jackson:R7n99WPYLChYqH1E@real-estate.auxdjie.mongodb.net/?retryWrites=true&w=majority&appName=real-estate").then(()=>{
   console.log("database is connected")
 
 }).catch((err)=>{
@@ -38,6 +38,6 @@ app.use((err,req,res,next)=>{
 })
 
 app.listen(3000,()=>{
-   console.log(`app is running on port ${process.env.PORT}`)
+   console.log(`app is running `)
    
 })

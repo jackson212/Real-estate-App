@@ -7,6 +7,7 @@ import {  useDispatch, useSelector } from "react-redux";
 import Oath from "../components/Oath";
 
 
+
 const Signin = () => {
   
     const [formData,setFormData]=useState({});
@@ -94,8 +95,14 @@ const Signin = () => {
           <div>
            
           <p className='flex items-center'> <input className='mr-2' type='checkbox' /> remember me</p>
-          <p className='flex items-center mt-8'>  Dont have account ? signup</p>
-       
+   
+                
+                 
+                 <Link to = '/signup'>
+                        
+                 <span className='flex items-center mt-8 relative'>  signup</span>
+                 </Link>
+
        </div>
    
            

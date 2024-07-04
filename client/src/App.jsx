@@ -7,6 +7,8 @@ import Profile from './pages/Profile'
 import Header from './components/Header'
 import { Link } from 'react-router-dom'
 
+import PrivateRoute from './components/PrivateRoute'
+
 import {
 
   Routes,
@@ -14,6 +16,7 @@ import {
   BrowserRouter,
  } from 'react-router-dom';
 import Signup from './pages/Signup'
+
 
 const App = () => {
   return <BrowserRouter>
@@ -25,8 +28,15 @@ const App = () => {
  
       <Route path='/about' element={<About/>} />
       <Route path='/signin' element={<Signin />} />
-      <Route path='/signout' element={<Signout />} />
-      <Route path='/profile' element={<Profile />} />
+      {/* <Route path='/signout' element={<Signout />} /> */}
+      
+      <Route element={<PrivateRoute/>}>
+      
+            <Route path='/profile' element={<Profile />} />
+      
+      
+      </Route>
+    
       
       
        </Routes>
