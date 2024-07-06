@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import UserRouter from './router/userRoute.js'
 import AuthRoute from './router/authRouter.js'
-
+import cookieParser from 'cookie-parser';
 dotenv.config()
 
 mongoose.connect("mongodb+srv://jackson:R7n99WPYLChYqH1E@real-estate.auxdjie.mongodb.net/?retryWrites=true&w=majority&appName=real-estate").then(()=>{
@@ -15,11 +15,14 @@ mongoose.connect("mongodb+srv://jackson:R7n99WPYLChYqH1E@real-estate.auxdjie.mon
 
 })
 
+
 const app =express()
+app.use(cookieParser());
 
 app.use(express.json())
 app.use('/api/user',UserRouter)
 app.use('/api/auth',AuthRoute)
+
 
 //
 app.use((err,req,res,next)=>{
