@@ -16,6 +16,7 @@ import {
   BrowserRouter,
  } from 'react-router-dom';
 import Signup from './pages/Signup'
+import CreateListing from './pages/CreateListing'
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
       <Route element={<PrivateRoute/>}>
       
             <Route path='/profile' element={<Profile />} />
+            <Route path='/create-listing' element={<CreateListing />} />
       
       
       </Route>

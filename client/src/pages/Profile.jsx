@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import {app} from '../firebase'
 import { deleteUserFailure, deleteUserStart, deleteUserSuccess, signOutUserFailure, signOutUserStart, signOutUserSuccess, updateUserFailure, updateUserStart, updateUserSuccess } from '../redux/user/userSlice';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
 
@@ -211,9 +212,16 @@ const Profile = () => {
           // disabled={loading}
          className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
         >
+
+
           {/* {loading ? 'Loading...' : 'Update'} */} Update
         </button>
-       
+        <Link
+          className='bg-red-800 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
+          to={'/create-listing'}
+        >
+          Create Listing
+        </Link>
    
      </form>
 
