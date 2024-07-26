@@ -4,14 +4,15 @@ import { errorHandler } from '../util/err.js';
 export const createListing = async (req, res, next) => {
   try {
     const listing = await Listing.create(req.body);
+    console.log(listing)
     return res.status(201).json(listing);
   } catch (error) {
     next(error);
   }
-};req
+};
 
 export const deleteListing = async (req, res, next) => {
-  const listing = await Listing.findById(.params.id);
+  const listing = await Listing.findById(req.params.id);
 
   if (!listing) {
     return next(errorHandler(404, 'Listing not found!'));

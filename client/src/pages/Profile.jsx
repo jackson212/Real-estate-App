@@ -28,6 +28,8 @@ const Profile = () => {
   const [fileUploadError, setFileUploadError] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [formData, setFormData] = useState({});
+  const [showlisterr,setlisterr]=useState(false)
+  const[userListing,setUserListing]=useState([])
   console.log(formData)
   const dispatch = useDispatch();
 
@@ -140,6 +142,52 @@ const Profile = () => {
 
   }
 
+  const handleShowListing =async()=>{
+      
+    try {
+       setlisterr(false)
+       const res = await fetch (`/api/user/listing/${currentUser._id}`)
+       const data= await  res.json()
+       if(data.success===false){
+
+        setlisterr(true)
+        return;
+       } 
+
+
+       setUserListing(data)
+      
+    } catch (error) {
+      setlisterr(true)
+    }
+
+  }
+
+  const handleDeleteList =async(id)=>{
+     try{
+    const res = await fetch(`/api/listing/delete/${id}`, {
+      method: 'DELETE',
+    });
+
+    const data = await res.json();
+      if (data.success === false) {
+        return;
+      }
+
+    
+      setUserListing((prev)=>prev.filter((list)=>list._id!==id));
+
+      
+
+      
+    } catch (error) {
+       console.log(error.message);
+    }
+
+
+
+  }
+
  
   return (
     <div className='p-3 max-w-lg mx-auto'>
@@ -235,7 +283,53 @@ const Profile = () => {
 
   <p className='text-red-900'>{error?error:''}</p>
 
+
+  <button onClick={handleShowListing} className=' gap-4 bg-yellow-500 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'>Show listing </button>
+        
+        <p className='text-red-600'>{showlisterr?'no listing found':''}</p>
+
+
+        {userListing&&userListing.length>0&&
+        userListing.map((listing)=>(
+          
+          <div key={listing._id} className='border p-3 rounded-lg flex justify-center items-center gap-4'>
+                   <Link to ={`/listing/${listing._id}`}>
+                     
+                   
+                     <img className='h-16 w-16 object-contain rounded-lg it' src={listing.imageUrls[0]} alt="listing cover" />
+                   
+                    </Link>
+                    <Link className='text-slate-600  font-semibold flex1 hover:underline truncate' to ={`/listing/${listing._id}`}>
+                     
+                   
+                     <p >{listing.name}</p>
+                   
+                    </Link>
+
+                    <div className='flex flex-col items-center'>
+                            <button className='text-red-600 ' onClick={()=>handleDeleteList(listing._id)}> Delete</button>
+                            
+                            <Link to={`/update-listing/${listing._id}`}>
+                            <button className='text-green-600 '> Edit</button>
+                            </Link>
+
+
+                            
+                           
+
+
+                    </div>
+
+          </div>
+
+        ))}
+
+
     </div>
+
+
+
+
   )
 }
 

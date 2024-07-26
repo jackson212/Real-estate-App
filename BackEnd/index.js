@@ -4,6 +4,8 @@ import dotenv from 'dotenv'
 import UserRouter from './router/userRoute.js'
 import AuthRoute from './router/authRouter.js'
 import cookieParser from 'cookie-parser';
+
+import LisitingRoute from './router/listing.route.js'
 dotenv.config()
 
 mongoose.connect("mongodb+srv://jackson:R7n99WPYLChYqH1E@real-estate.auxdjie.mongodb.net/?retryWrites=true&w=majority&appName=real-estate").then(()=>{
@@ -22,6 +24,7 @@ app.use(cookieParser());
 app.use(express.json())
 app.use('/api/user',UserRouter)
 app.use('/api/auth',AuthRoute)
+app.use('/api/listing',LisitingRoute)
 
 
 //

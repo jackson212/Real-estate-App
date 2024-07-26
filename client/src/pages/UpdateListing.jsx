@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { useNavigate,useParams } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import {
    getDownloadURL,
@@ -15,6 +15,31 @@ function CreateListing() {
 const [files,setFiles]=useState([])
 const [error,setError]=useState(false)
 const [loading,setLoading]=useState(false)
+
+const params=useParams();
+useEffect(()=>{
+ 
+    const  fetchListing=async()=>{
+        const listingId=params.id;
+        const res =await fetch(`/api/listing/get/${listingId}`);
+        const data= await res.json()
+     
+        if(data.message===false){
+
+            console.log(data.message);
+            return;
+
+        }
+        setFormData(data);
+        
+
+
+    }
+    fetchListing();
+
+},[]
+
+)
 
 
 const [formData, setFormData] = useState({
@@ -176,7 +201,7 @@ const onhandelSubmit= async(e)=>{
 
    setLoading(true)
    setError(false)
-   const res = await fetch('/api/listing/create', {
+   const res = await fetch(`/api/listing/update/${params.id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -206,6 +231,11 @@ const onhandelSubmit= async(e)=>{
 
 
 }
+
+
+
+
+
 
   return (
     <main className='p-3 max-w-4xl mx-auto'>
