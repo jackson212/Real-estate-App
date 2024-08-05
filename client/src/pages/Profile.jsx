@@ -293,7 +293,7 @@ const Profile = () => {
         userListing.map((listing)=>(
           
           <div key={listing._id} className='border p-3 rounded-lg flex justify-center items-center gap-4'>
-                   <Link to ={`/listing/${listing._id}`}>
+                   <Link to ={`/listing/get/${listing._id}`}>
                      
                    
                      <img className='h-16 w-16 object-contain rounded-lg it' src={listing.imageUrls[0]} alt="listing cover" />
