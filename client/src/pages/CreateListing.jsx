@@ -222,7 +222,7 @@ const onhandelSubmit= async(e)=>{
       className='border p-3 rounded-lg' 
       id="name" 
       maxLength="62" 
-      minLength="10" 
+      minLength="2" 
       required 
       onChange={handlechangeall}
       value={formData.name}/>
@@ -234,7 +234,7 @@ const onhandelSubmit= async(e)=>{
       className='border p-3 rounded-lg' 
       id="description" 
       maxLength="62" 
-      minLength="10" 
+      minLength="5" 
       required   
       onChange={handlechangeall} 
       value={formData.description}/>
@@ -245,7 +245,7 @@ const onhandelSubmit= async(e)=>{
       className='border p-3 rounded-lg' 
       id="address"
       maxLength="62" 
-      minLength="10" 
+      minLength="5" 
       required 
       onChange={handlechangeall} 
       value={formData.address}/>

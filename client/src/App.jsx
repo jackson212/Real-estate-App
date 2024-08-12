@@ -18,6 +18,7 @@ import {
  } from 'react-router-dom';
 import Signup from './pages/Signup'
 import CreateListing from './pages/CreateListing'
+import Search from './pages/Search'
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
       {/* <Route path='/signout' element={<Signout />} /> */}
       <Route path='/listing/get/:id' element={<Listing/>}/>
       <Route path='/listing/get' element={<Listing/>}/>
+      <Route path='/search' element={<Search/>}/>
       <Route element={<PrivateRoute/>}>
       
             <Route path='/profile' element={<Profile />} />
